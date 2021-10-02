@@ -1,4 +1,5 @@
 package com.example.semana3.service;
+import com.example.semana3.common.OrderValidator;
 import com.example.semana3.dto.OrderRequest;
 import com.example.semana3.dto.OrderResponse;
 import com.example.semana3.entities.Order;
@@ -11,6 +12,7 @@ import java.util.List;
 public class OrderService {
 
     public Order createOrder(OrderRequest orderRequest){
+        OrderValidator.validateOrder(orderRequest);
         Order response= new Order();
         response.setOrderId("9999999");
         response.setStatus("Pending");
